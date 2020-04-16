@@ -1,0 +1,24 @@
+<html>
+<head>
+    <title>Basket</title>
+</head>
+<body>
+<div>
+    <p align="right">
+        <a href="/">Main page</a>
+    </p>
+    <form method="post" action="/basket">
+        <button type="submit">Buy all</button>
+    </form>
+    <form method="post" action="/basket/clear">
+        <button type="submit">Clear all</button>
+    </form>
+</div>
+    {{#products}}
+    <div>
+        <b>{{key}}</b>
+        <span>{{value}}</span>
+    </div>
+    {{/products}}
+</body>
+</html>

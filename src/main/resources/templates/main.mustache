@@ -1,0 +1,37 @@
+<html>
+<body>
+<div>
+    <p align="right">
+        <a href="/basket">Basket</a>
+    </p>
+    Add products
+    <form method="post" action="add">
+        <input type="text" name="id", placeholder="Product id">
+        <input type="text" name="name", placeholder="Product name">
+        <input type="=text" name="amount", placeholder="Product amount">
+        <button type="submit">Add</button>
+    </form>
+    Order products
+    <form method="post" action="order">
+        <input type="text" name="id" placeholder="Product id">
+        <input type="text" name="amount" placeholder="Product amount">
+        <button type="submit">To basket</button>
+    </form>
+    {{#message}}
+        {{message}}
+    {{/message}}
+</div>
+    <div>Products list</div>
+    <form method="post" action="filter">
+        <input type="text" name="name">
+        <button type="submit">Find</button>
+    </form>
+    {{#products}}
+    <div>
+        <b>{{id}}</b>
+        <span>{{name}}</span>
+        <i>{{amount}}</i>
+    </div>
+    {{/products}}
+</body>
+</html>
