@@ -33,7 +33,7 @@ public class ProductService {
         }
     }
 
-    @Transactional(isolation = Isolation.REPEATABLE_READ)
+    @Transactional(isolation = Isolation.READ_COMMITTED)
     public void byuItems(User user) {
 
         for (var item : user.basket.entrySet()) {
