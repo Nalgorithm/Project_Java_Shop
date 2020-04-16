@@ -1,29 +1,40 @@
 <html>
 <body>
 <div>
+    <form action="/logout" method="post">
+        <input type="submit" value="Sign out"/>
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+    </form>
+</div>
     <p align="right">
         <a href="/basket">Basket</a>
     </p>
-    Add products
+<div>Add products</div>
+<div>
     <form method="post" action="add">
         <input type="text" name="id", placeholder="Product id">
         <input type="text" name="name", placeholder="Product name">
         <input type="=text" name="amount", placeholder="Product amount">
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+
         <button type="submit">Add</button>
     </form>
-    Order products
+</div>
+<div>Order products</div>
     <form method="post" action="order">
         <input type="text" name="id" placeholder="Product id">
         <input type="text" name="amount" placeholder="Product amount">
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+
         <button type="submit">To basket</button>
     </form>
     {{#message}}
-        {{message}}
+<div>{{message}}</div>
     {{/message}}
-</div>
     <div>Products list</div>
     <form method="post" action="filter">
         <input type="text" name="name">
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
         <button type="submit">Find</button>
     </form>
     {{#products}}

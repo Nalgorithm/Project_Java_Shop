@@ -5,13 +5,17 @@
 <body>
 <div>
     <p align="right">
-        <a href="/">Main page</a>
+        <a href="/main">Main page</a>
     </p>
     <form method="post" action="/basket">
         <button type="submit">Buy all</button>
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+
     </form>
-    <form method="post" action="/basket/clear">
+    <form method="post" action="clear">
         <button type="submit">Clear all</button>
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+
     </form>
 </div>
     {{#products}}

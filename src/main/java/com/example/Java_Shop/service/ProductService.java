@@ -1,7 +1,7 @@
 package com.example.Java_Shop.service;
 
-import com.example.Java_Shop.domain.OrderedItem;
 import com.example.Java_Shop.domain.Product;
+import com.example.Java_Shop.domain.User;
 import com.example.Java_Shop.repos.ProductRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,8 +14,6 @@ import java.util.*;
 public class ProductService {
     @Autowired
     private ProductRepo productRepo;
-
-    private Map<Integer, Long> orderedItems = new HashMap<>();
 
     public Iterable<Product> findByName(String name){
         return productRepo.findByName(name);
@@ -35,34 +33,32 @@ public class ProductService {
         }
     }
 
-    @Transactional(isolation = Isolation.READ_COMMITTED)
-    public void byuItems() throws Exception {
+    @Transactional(isolation = Isolation.REPEATABLE_READ)
+    public void byuItems(User user) {
 
-        for (var item : orderedItems.entrySet()) {
+        for (var item : user.basket.entrySet()) {
             Product product = productRepo.findById(item.getKey()).get();
             if(product.getAmount() < item.getValue())
                 throw new RuntimeException("Amount is not enough to buy");
             product.setAmount(product.getAmount() - item.getValue());
             productRepo.save(product);
         }
-        orderedItems.clear();
+        user.basket.clear();
     }
 
     @Transactional(isolation = Isolation.READ_COMMITTED)
-    public boolean orderItem(Integer id, long amount){
+    public boolean orderItem(Integer id, long amount, User user){
         Optional<Product> itemDb = productRepo.findById(id);
-        if(itemDb.isPresent() && itemDb.get().getAmount() >= amount + orderedItems.getOrDefault(id, 0L)){
-            orderedItems.put(id, amount + orderedItems.getOrDefault(id, 0L));
+        if(itemDb.isPresent() && itemDb.get().getAmount() >= amount + user.basket.getOrDefault(id, 0L)){
+            user.basket.put(id, amount + user.basket.getOrDefault(id, 0L));
             return true;
         }
         return false;
     }
 
-    public Map<Integer, Long> getOrderedItems() {
-        return orderedItems;
-    }
 
-    public void clearBasket(){
-        orderedItems.clear();
-    }
+
+
+
+
 }
