@@ -72,7 +72,7 @@ public class ProductController {
     @PostMapping("/basket")
     public String buyProducts(@AuthenticationPrincipal User user, Model model){
         try {
-            productService.byuItems(user);
+            productService.buyItems(user);
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -33,7 +33,7 @@ public class ProductService {
     }
 
     @Transactional(isolation = Isolation.SERIALIZABLE)
-    public void byuItems(User user) {
+    public void buyItems(User user) {
 
         for (var item : user.basket.entrySet()) {
             Product product = productRepo.findById(item.getKey()).get();
