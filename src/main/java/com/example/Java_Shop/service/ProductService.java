@@ -19,12 +19,11 @@ public class ProductService {
         return productRepo.findByName(name);
     }
 
-    @Transactional(isolation = Isolation.REPEATABLE_READ)
     public Iterable<Product> listItems(){
         return productRepo.findAll();
     }
 
-    @Transactional(isolation = Isolation.READ_COMMITTED)
+    @Transactional(isolation = Isolation.SERIALIZABLE)
     public void addItems(Product product){
         Optional<Product> itemDb = productRepo.findById(product.getId());
         itemDb.ifPresent(value -> product.setAmount(product.getAmount() + value.getAmount()));
@@ -33,7 +32,7 @@ public class ProductService {
         }
     }
 
-    @Transactional(isolation = Isolation.READ_COMMITTED)
+    @Transactional(isolation = Isolation.SERIALIZABLE)
     public void byuItems(User user) {
 
         for (var item : user.basket.entrySet()) {
@@ -46,7 +45,7 @@ public class ProductService {
         user.basket.clear();
     }
 
-    @Transactional(isolation = Isolation.READ_COMMITTED)
+    @Transactional(isolation = Isolation.SERIALIZABLE)
     public boolean orderItem(Integer id, long amount, User user){
         Optional<Product> itemDb = productRepo.findById(id);
         if(itemDb.isPresent() && itemDb.get().getAmount() >= amount + user.basket.getOrDefault(id, 0L)){
@@ -55,10 +54,5 @@ public class ProductService {
         }
         return false;
     }
-
-
-
-
-
 
 }
