@@ -1,4 +1,4 @@
-package com.example.Java_Shop.config;
+package com.example.javaShop.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;

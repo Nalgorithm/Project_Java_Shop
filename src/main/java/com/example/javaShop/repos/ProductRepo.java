@@ -1,8 +1,7 @@
-package com.example.Java_Shop.repos;
+package com.example.javaShop.repos;
 
-import com.example.Java_Shop.domain.Product;
+import com.example.javaShop.domain.Product;
 import com.sun.xml.bind.v2.model.core.ID;
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;

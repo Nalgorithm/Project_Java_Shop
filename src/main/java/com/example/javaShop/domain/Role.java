@@ -1,4 +1,4 @@
-package com.example.Java_Shop.domain;
+package com.example.javaShop.domain;
 
 import org.springframework.security.core.GrantedAuthority;
 

@@ -1,6 +1,6 @@
-package com.example.Java_Shop.service;
+package com.example.javaShop.service;
 
-import com.example.Java_Shop.repos.UserRepo;
+import com.example.javaShop.repos.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

@@ -1,8 +1,8 @@
-package com.example.Java_Shop.service;
+package com.example.javaShop.service;
 
-import com.example.Java_Shop.domain.Product;
-import com.example.Java_Shop.domain.User;
-import com.example.Java_Shop.repos.ProductRepo;
+import com.example.javaShop.domain.Product;
+import com.example.javaShop.domain.User;
+import com.example.javaShop.repos.ProductRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;

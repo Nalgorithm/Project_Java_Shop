@@ -1,8 +1,8 @@
-package com.example.Java_Shop.controller;
+package com.example.javaShop.controller;
 
-import com.example.Java_Shop.domain.Product;
-import com.example.Java_Shop.domain.User;
-import com.example.Java_Shop.service.ProductService;
+import com.example.javaShop.domain.Product;
+import com.example.javaShop.domain.User;
+import com.example.javaShop.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;

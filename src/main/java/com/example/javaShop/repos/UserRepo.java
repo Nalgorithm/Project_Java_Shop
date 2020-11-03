@@ -1,6 +1,6 @@
-package com.example.Java_Shop.repos;
+package com.example.javaShop.repos;
 
-import com.example.Java_Shop.domain.User;
+import com.example.javaShop.domain.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserRepo extends JpaRepository<User, Integer> {

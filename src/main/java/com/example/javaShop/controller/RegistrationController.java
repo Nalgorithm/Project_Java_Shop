@@ -1,9 +1,8 @@
-package com.example.Java_Shop.controller;
+package com.example.javaShop.controller;
 
-import com.example.Java_Shop.domain.Role;
-import com.example.Java_Shop.domain.User;
-import com.example.Java_Shop.repos.UserRepo;
-import org.hibernate.mapping.Collection;
+import com.example.javaShop.domain.Role;
+import com.example.javaShop.domain.User;
+import com.example.javaShop.repos.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

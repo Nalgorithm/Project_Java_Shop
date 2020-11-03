@@ -1,6 +1,6 @@
-package com.example.Java_Shop.config;
+package com.example.javaShop.config;
 
-import com.example.Java_Shop.service.UserService;
+import com.example.javaShop.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
